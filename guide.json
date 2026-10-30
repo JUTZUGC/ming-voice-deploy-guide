@@ -1,0 +1,105 @@
+{
+  "owner": "JUTZUGC",
+  "code": "JUTZUGC",
+  "project": {
+    "key": "mingvoice",
+    "nameCn": "Ming Voice",
+    "repoName": "ming-voice-deploy-guide",
+    "oneLiner": "完全本地的实时语音助手：说完约 0.23 秒就开口回答，能查天气、搜网页、记清单、控智能家居",
+    "officialRepo": "https://github.com/JMS1717/ming-voice",
+    "officialDocs": "https://github.com/JMS1717/ming-voice#quick-start",
+    "stars": "398",
+    "license": "MIT",
+    "highlights": [
+      "完全本地：音频不出本机，工具关闭后彻底离线",
+      "低延迟：说完约 0.23 秒开始回答",
+      "能被打断：边说边改，一秒内继续说话会合并成一轮",
+      "工具齐全：天气、搜索、计算器、定时器、清单、记忆",
+      "智能家居：Home Assistant 灯光、空调、门锁、扫地机",
+      "多端接入：手机网页、Wyoming 协议、OpenAI 兼容 API"
+    ],
+    "mcpSupport": "项目本身不含 MCP；本仓库的 MCP 只提供安装步骤、硬件要求与常见问题。",
+    "webuiUrl": "",
+    "adapterPorts": "",
+    "collectedAt": "2026-10-30",
+    "verification": [
+      [
+        "README 确认 16 GB 显存、30 GB 磁盘与 Linux / WSL2 要求",
+        "已核对 2026-10-30"
+      ],
+      [
+        "README 确认 install.sh / install.ps1 两条安装入口",
+        "已核对 2026-10-30"
+      ],
+      [
+        "未实测安装（需 16 GB 显存与约 20 GB 模型下载）",
+        "说明 2026-10-30"
+      ],
+      [
+        "MCP 冒烟：initialize / tools/list 返回 get_guide、search_guide、get_project_info",
+        "已验证 2026-10-30"
+      ],
+      [
+        "非目标宿主调用 get_guide 被拦截（HOST_NOT_ALLOWED）",
+        "已验证 2026-10-30"
+      ]
+    ],
+    "deploy": {
+      "type": "script",
+      "steps": [
+        "curl -fsSL https://raw.githubusercontent.com/JMS1717/ming-voice/main/install.sh | bash",
+        "echo \"安装完成：从应用菜单打开 Ming Voice，首次启动要 1–2 分钟编译内核\""
+      ],
+      "stepsPs": [
+        "irm https://raw.githubusercontent.com/JMS1717/ming-voice/main/install.ps1 | iex",
+        "Write-Host \"安装完成：桌面会出现 Ming Voice 快捷方式，首次启动要 1–2 分钟编译内核\""
+      ],
+      "source": "https://github.com/JMS1717/ming-voice#quick-start"
+    },
+    "pitfalls": [
+      "显存不足：换 16 GB 以上的卡，或用 int8 专家模式",
+      "安装中断：直接重跑安装脚本，已完成步骤会跳过",
+      "AMD 权限问题：安装器会把你加进 render 组，重新登录才生效",
+      "Windows 没有 WSL：安装器会自动装，但需要管理员权限与重启",
+      "首次启动卡住：在编译内核，等 1–2 分钟",
+      "搜不到模型：检查磁盘空间与网络，必要时设 MING_DIR 换盘",
+      "想彻底离线：设置里关掉工具，避免搜索词外发"
+    ]
+  },
+  "gate": {
+    "allow": [
+      "dumate"
+    ],
+    "label": "百度搭子",
+    "url": "https://www.dumate.cn/",
+    "guideUrl": "https://github.com/JUTZUGC/ming-voice-deploy-guide",
+    "howToFix": [
+      "1. 打开 https://www.dumate.cn/ ，下载并安装「百度搭子」电脑端（Windows / macOS）",
+      "2. 用账号登录",
+      "3. 在对话窗口发送：你好，帮我从 github 部署 JUTZUGC/ming-voice-deploy-guide 到我的电脑上",
+      "4. 部署完成后，在同一对话窗口里继续使用"
+    ],
+    "hint": "请改用「百度搭子」部署后再使用；本工具没有网页版入口。",
+    "onError": "allow"
+  },
+  "keywords": [
+    "Ming Voice",
+    "Ming Voice 部署",
+    "本地 语音助手",
+    "语音转语音 开源",
+    "AMD GPU 语音模型",
+    "ming-voice 教程",
+    "Home Assistant 语音",
+    "离线 语音对话",
+    "ming voice deploy guide",
+    "实时语音 助手"
+  ],
+  "topics": [
+    "voice-assistant",
+    "speech-to-speech",
+    "local-first",
+    "gpu",
+    "home-assistant",
+    "ming-voice"
+  ]
+}
